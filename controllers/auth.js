@@ -49,7 +49,7 @@ const loginUsuario = async (req, res = response) => {
 	try {
 		//Comprobamos que el email exista
 		const usuario = await Usuario.findOne( { email } );
-
+		
 		if( !usuario ) {
 			return res.status( 400 ).json({
 				ok: false,
@@ -103,6 +103,8 @@ const revalidarToken = async(req, res = response) => {
 
 	return res.json({
 		ok: true,
+		uid,
+		name,
 		token
 
 	});

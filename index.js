@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('./database/config');
+const path = require('path');
 require('dotenv').config();
 
 
@@ -23,6 +24,10 @@ app.use( express.json());
  //Midleware de la Ruta de autenticacion de usuario
  app.use('/api/auth', require('./routes/auth'));
  app.use('/api/events', require('./routes/events'));
+
+//  app.use( '*', (req, res) => {
+//       res.sendFile(path.join( __dirname, 'public/index.html'));
+//  });
 
 //Escuchar peticiones
 app.listen(process.env.PORT, () => {
